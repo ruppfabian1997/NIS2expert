@@ -1,0 +1,44 @@
+# Core LangChain dependencies
+langchain>=0.1.0
+langchain-community>=0.0.1
+
+# LLM and Embeddings providers
+openai>=1.0.0
+tiktoken>=0.5.0
+
+# HuggingFace support
+sentence-transformers>=2.2.0
+transformers>=4.30.0
+
+# Vector stores
+faiss-cpu>=1.7.4
+# For GPU support, use: faiss-gpu>=1.7.4
+
+# Document loaders
+pypdf>=3.0.0
+python-docx>=0.8.11
+unstructured>=0.10.0
+
+# Additional NLP tools
+nltk>=3.8
+
+# Configuration and utilities
+pyyaml>=6.0
+python-dotenv>=1.0.0
+
+# Optional: Additional vector store support (uncomment to use)
+# pinecone-client>=2.2.0
+# weaviate-client>=3.0.0
+# chromadb>=0.4.0
+
+# Optional: Additional LLM providers (uncomment to use)
+# anthropic>=0.3.0
+# cohere>=4.0.0
+# google-cloud-aiplatform>=1.25.0
+
+# Development dependencies (optional)
+# pytest>=7.0.0
+# pytest-cov>=4.0.0
+# black>=23.0.0
+# flake8>=6.0.0
+# mypy>=1.0.0

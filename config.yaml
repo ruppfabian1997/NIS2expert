@@ -1,0 +1,101 @@
+# NIS-2 Compliance Expert System Configuration
+
+# Embedding Configuration
+embeddings:
+  # Options: "openai", "huggingface"
+  provider: "openai"
+  
+  # OpenAI Configuration
+  openai:
+    model: "text-embedding-ada-002"
+    # API key can be set via environment variable OPENAI_API_KEY
+  
+  # HuggingFace Configuration
+  huggingface:
+    model_name: "sentence-transformers/all-MiniLM-L6-v2"
+    # For private models, set HF_TOKEN environment variable
+
+# Vector Store Configuration
+vectorstore:
+  # Options: "faiss", "pinecone", "weaviate", "chroma"
+  provider: "faiss"
+  
+  # FAISS Configuration
+  faiss:
+    index_path: "data/vectorstore/faiss_index"
+    
+  # Pinecone Configuration (for future use)
+  pinecone:
+    environment: "us-east-1-aws"
+    index_name: "nis2-compliance"
+    # API key via PINECONE_API_KEY environment variable
+    
+  # Weaviate Configuration (for future use)
+  weaviate:
+    url: "http://localhost:8080"
+    index_name: "NIS2Documents"
+    
+  # Chroma Configuration (for future use)
+  chroma:
+    persist_directory: "data/vectorstore/chroma"
+
+# Document Processing Configuration
+document_processing:
+  # Text splitter settings
+  splitter:
+    chunk_size: 1000
+    chunk_overlap: 200
+    separators: ["\n\n", "\n", " ", ""]
+  
+  # Supported file types
+  supported_formats:
+    - "pdf"
+    - "txt"
+    - "docx"
+    - "html"
+
+# Retrieval Chain Configuration
+retrieval:
+  # Chain type: "retrieval_qa" or "conversational_retrieval"
+  chain_type: "retrieval_qa"
+  
+  # Retrieval settings
+  search_kwargs:
+    k: 4  # Number of documents to retrieve
+    
+  # LLM Configuration
+  llm:
+    provider: "openai"  # Currently only "openai" is implemented
+    model: "gpt-3.5-turbo"
+    temperature: 0.0
+    max_tokens: 500
+
+# Data Paths
+paths:
+  # Where NIS-2 and ENISA documents are stored
+  documents: "data/documents"
+  # Where processed vector stores are saved
+  vectorstore: "data/vectorstore"
+  # Where reports and outputs are saved
+  reports: "data/reports"
+
+# Logging Configuration
+logging:
+  level: "INFO"  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/nis2expert.log"
+
+# NIS-2 Specific Configuration (placeholders for future features)
+nis2:
+  # Gap analysis settings (to be implemented)
+  gap_analysis:
+    enabled: false
+    
+  # Compliance scoring (to be implemented)
+  scoring:
+    enabled: false
+    
+  # Audit trail (to be implemented)
+  auditing:
+    enabled: false
+    log_path: "data/audit_logs"
