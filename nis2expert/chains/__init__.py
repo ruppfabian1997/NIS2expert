@@ -187,7 +187,7 @@ Assessment:"""
             Compliance assessment
         """
         # Retrieve relevant requirements
-        requirements_docs = self.retriever.get_relevant_documents(topic)
+        requirements_docs = self.retriever.invoke(topic)
         requirements_text = "\n\n".join([doc.page_content for doc in requirements_docs])
         
         # Run compliance check

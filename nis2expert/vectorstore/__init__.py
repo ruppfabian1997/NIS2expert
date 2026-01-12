@@ -6,7 +6,7 @@ with persistence and retrieval capabilities optimized for compliance documents.
 """
 
 from pathlib import Path
-from typing import List, Optional, Union
+from typing import List, Optional, Union, Tuple
 
 from langchain.schema import Document
 from langchain_community.vectorstores import Chroma, FAISS
@@ -161,7 +161,7 @@ class NIS2VectorStore:
         self,
         query: str,
         k: Optional[int] = None,
-    ) -> List[tuple[Document, float]]:
+    ) -> List[Tuple[Document, float]]:
         """
         Perform similarity search with relevance scores.
         
