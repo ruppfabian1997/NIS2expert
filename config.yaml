@@ -65,7 +65,7 @@ retrieval:
     
   # LLM Configuration
   llm:
-    provider: "openai"  # Options: "openai", "huggingface", "anthropic"
+    provider: "openai"  # Currently only "openai" is implemented
     model: "gpt-3.5-turbo"
     temperature: 0.0
     max_tokens: 500

@@ -132,7 +132,7 @@ def main():
     print(f"\nInitializing {vectorstore_provider} vector store...")
     
     if vectorstore_provider == "faiss":
-        index_path = vectorstore_config.get("faiss", {}).get("index_path")
+        index_path = vectorstore_config.get("faiss", {}).get("index_path", "data/vectorstore/faiss_index")
         index_path_obj = Path(index_path)
         
         # Check if index already exists
